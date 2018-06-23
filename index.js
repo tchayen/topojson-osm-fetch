@@ -76,4 +76,9 @@ const convert = async (input, output, config) => {
   }
 }
 
-module.exports = { generateUrl, fetchData, writeOutput, convert }
+module.exports = {
+  generateUrl,
+  fetchData,
+  writeOutput,
+  convert,
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>topojson-osm-fetch – example</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(248, 244, 238);
+    }
+
+    .parks {
+      fill: rgb(188, 224, 172);
+    }
+
+    .rivers {
+      fill: rgb(155, 224, 242);
+      stroke: rgb(155, 224, 242);
+    }
+
+    .minor-roads-stroke {
+      fill: none;
+      stroke-width: 3;
+      stroke: rgb(207, 200, 191);
+    }
+
+    .minor-roads {
+      fill: none;
+      stroke-width: 2;
+      stroke: rgb(255, 255, 255);
+    }
+
+    .major-roads-stroke {
+      fill: none;
+      stroke-width: 5px;
+      stroke: rgb(245, 195, 142);
+    }
+
+    .major-roads {
+      fill: none;
+      stroke-width: 4px;
+      stroke: rgb(252, 251, 222);
+    }
+  </style>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="//d3js.org/topojson.v1.min.js"></script>
+  <script>
+    // NOTE:
+    // This example will work in modern browsers but will fail miserably on IE
+    // and archaic versions of FF/Chrome. When deploying code to production, use
+    // more conservative JS style with wider browser support or go for Babel
+    // with transpiling and polyfilling your code (I strongly recommend the
+    // second approach).
+
+    const width = window.innerWidth,
+          height = window.innerHeight,
+          zoomLevel = 1.5,
+          corners = [[19.91, 50.08], [20.0, 50.03]]
+
+    // Translate camelCase to kebab-case (just to use proper CSS class naming convention)
+    const kebabFromCamel = string => string.split(/(?=[A-Z])/).join('-').toLowerCase()
+
+    // Utility for calculating projectionPath based on given coordinate corners
+    const calculateProjectionPath = relative => {
+      const projection = d3.geoMercator()
+        .scale(1)
+        .translate([0, 0])
+
+      const projectionPath = d3.geoPath().projection(projection)
+      const bounds = [projection(relative[0]), projection(relative[1])]
+
+      const scale = zoomLevel / Math.max(
+        (bounds[1][0] - bounds[0][0]) / width,
+        (bounds[1][1] - bounds[0][1]) / height,
+      )
+
+      const translate = [
+        (width  - scale * (bounds[1][0] + bounds[0][0])) / 2,
+        (height - scale * (bounds[1][1] + bounds[0][1])) / 2,
+      ]
+
+      projection.scale(scale).translate(translate)
+
+      return projectionPath
+    }
+
+    const addLayer = (name, data, projectionPath, svg) => {
+      svg.append('g')
+        .selectAll('path')
+          .data(data)
+        .enter()
+          .append('path')
+          .attr('d', projectionPath)
+          .attr('class', kebabFromCamel(name))
+    }
+
+    const addLayers = (svg, data, projectionPath, names) => {
+      names.forEach(name => {
+        // Add layer twice to enable stroke for roads (since roads are simply
+        // strokes in the first place)
+        if (name.match('Roads')) {
+          addLayer(`${name}Stroke`, getFeatures(data, name), projectionPath, svg)
+        }
+
+        addLayer(name, getFeatures(data, name), projectionPath, svg)
+      })
+    }
+
+    const getFeatures = (data, name) => topojson.feature(data, data.objects[name]).features
+
+    ;(async () => {
+      const projectionPath = calculateProjectionPath(corners)
+
+      const svg = d3.select('body')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+
+      const data = await d3.json('/assets/cracow.topojson')
+
+      addLayers(svg, data, projectionPath, ['rivers', 'parks', 'minorRoads', 'majorRoads'])
+    })()
+  </script>
+</body>
+</html>
