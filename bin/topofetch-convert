@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const commander = require('commander')
+const fs = require('fs')
+const getStdin = require('get-stdin')
+const { fetchData, convert, writeOutput } = require('../')
+
+commander
+  .option('-i, --input <file>', 'Input file. Defaults to STDIN.')
+  .option('-o, --output <file>', 'Output file. Defaults to STDOUT.', '-')
+  .parse(process.argv)
+
+const input = () => getStdin().then(string => JSON.parse(string))
+
+const output = commander.output === '-'
+  ? process.stdout
+  : fs.createWriteStream(commander.output)
+
+convert(input, data => writeOutput(output, data))

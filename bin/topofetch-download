@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const commander = require('commander')
+const fs = require('fs')
+const { generateUrl, fetchData, convert, writeOutput } = require('../')
+
+commander.parse(process.argv)
+
+if (!/\d+\.\d+\,\d+\.\d+\,\d+\.\d+\,\d+\.\d+/.test(commander.args[0])) {
+  console.log('Incorrect bounds format. It must follow pattern like \'50.0,19.85,50.105,20.13\'.')
+  process.exit(1)
+}
+
+const input = () => fetchData(generateUrl(commander.args[0]))
+
+const output = commander.args[1]
+  ? fs.createWriteStream(commander.out)
+  : process.stdout
+
+convert(input, data => writeOutput(output, data))
