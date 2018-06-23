@@ -34,6 +34,28 @@ const bounds = [50.0, 19.85, 50.105, 20.13].join()
 convert(fetchData(generateUrl(bounds)), console.log)
 ```
 
+## Config
+`convert()` takes configuration object as the third argument, which can look like this:
+
+```js
+const defaultConfig = {
+  output: {
+    layers: {
+      green: d => d.properties.leisure,
+      water: d => d.properties.waterway,
+      minorRoads: d => inArray(d.properties.highway,
+        ['unclassified', 'residential', 'pedestrian', 'living_street', 'road']),
+      majorRoads: d => inArray(d.properties.highway,
+        ['motorway', 'motorway-link', 'trunk', 'trunk-link', 'primary', 'primary-link', 'secondary', 'secondary-link', 'tertiary', 'tertiary-link'])
+    }
+  }
+}
+```
+
+The output TopoJSON file will have specified layers with their names.
+
+**NOTE:** _TopoJSON layers are simply properties of the `features` in the TopoJSON object_
+
 ## TODO
 - add `query` option for specifying own queries
-- add config objects (and files) for specifying objects to download and output layers
+- add ability to specify config from CLI
