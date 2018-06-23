@@ -7,7 +7,7 @@ Node utilities for fetching data from Open Street Map and converting it to a Top
 npm install -g topojson-osm-fetch
 ```
 
-## Usage
+## Usage as CLI
 
 ### Download data
 
@@ -25,7 +25,7 @@ If you have already downloaded OSM data as a JSON file
 topofetch convert map.json
 ```
 
-### NPM package
+## Usage as module
 ```js
 import { generateUrl, fetchData, convert } from 'topojson-osm-fetch'
 
@@ -33,3 +33,7 @@ const bounds = [50.0, 19.85, 50.105, 20.13].join()
 
 convert(fetchData(generateUrl(bounds)), console.log)
 ```
+
+## TODO
+- add `query` option for specifying own queries
+- add config objects (and files) for specifying objects to download and output layers
