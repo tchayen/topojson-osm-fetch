@@ -6,6 +6,7 @@ Node utilities for fetching data from Open Street Map and converting it to a Top
 ```bash
 npm install -g topojson-osm-fetch
 ```
+**NOTE:** _Global install is not necessary if you want to use it only as a module_
 
 ## Usage as CLI
 
@@ -57,6 +58,7 @@ const defaultConfig = {
   }
 }
 ```
+The only thing needed for the layer is filter function used for separating it from others. `d` is data of a GeoJSON feature and comes straight from the OSM data that you provided.
 
 The output TopoJSON file will have specified layers with their names.
 
