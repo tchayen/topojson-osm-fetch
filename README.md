@@ -2,6 +2,9 @@
 
 Node utilities for fetching data from Open Street Map and converting it to a TopoJSON file.
 
+![](screenshot.png)
+_Check out the examples below_
+
 ## Installation
 
 ```bash
@@ -40,22 +43,6 @@ const bounds = [50.0, 19.85, 50.105, 20.13].join()
 convert(fetchData(generateUrl(bounds)), console.log)
 ```
 
-## Examples
-In order to comply with browsers' security restrictions, you serve static content from local server.
-
-This bash one-liner run from `/examples` directory comes to the rescue:
-```bash
-python -m SimpleHTTPServer 8000
-```
-
-### d3.js SVG
-
-![](screenshot.png)
-
-The simplest use case is rendering a map via `d3.js` library.
-
-Check out [source code](/examples/d3.html).
-
 ## API
 
 For API reference refer to `index.js` which contains JS Docs.
@@ -85,6 +72,22 @@ The only thing needed for the layer is filter function used for separating it fr
 The output TopoJSON file will have specified layers with their names.
 
 **NOTE:** _TopoJSON layers are simply properties of the `features` in the TopoJSON object_
+
+## Examples
+In order to comply with browsers' security restrictions, you serve static content from local server.
+
+This bash one-liner run from `/examples` directory comes to the rescue:
+```bash
+python -m SimpleHTTPServer 8000
+```
+
+### d3.js SVG
+
+![](screenshot.png)
+
+The simplest use case is rendering a map via `d3.js` library. Sometimes it might be useful to keep the whole map as one asset file and render it as a whole.
+
+Check out [source code](/examples/d3.html).
 
 ## Insights
 
