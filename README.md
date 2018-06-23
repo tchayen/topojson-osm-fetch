@@ -41,12 +41,14 @@ convert(fetchData(generateUrl(bounds)), console.log)
 const defaultConfig = {
   output: {
     layers: {
-      green: d => d.properties.leisure,
-      water: d => d.properties.waterway,
-      minorRoads: d => inArray(d.properties.highway,
-        ['unclassified', 'residential', 'pedestrian', 'living_street', 'road']),
-      majorRoads: d => inArray(d.properties.highway,
-        ['motorway', 'motorway-link', 'trunk', 'trunk-link', 'primary', 'primary-link', 'secondary', 'secondary-link', 'tertiary', 'tertiary-link'])
+      green:
+        d => d.properties.leisure,
+      water:
+        d => d.properties.waterway,
+      minorRoads:
+        d => inArray(d.properties.highway, ['unclassified', 'residential', 'pedestrian', 'living_street', 'road']),
+      majorRoads:
+        d => inArray(d.properties.highway, ['motorway', 'motorway-link', 'trunk', 'trunk-link', 'primary', 'primary-link', 'secondary', 'secondary-link', 'tertiary', 'tertiary-link'])
     }
   }
 }
