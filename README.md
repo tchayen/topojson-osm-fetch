@@ -12,8 +12,10 @@ npm install -g topojson-osm-fetch
 ### Download data
 
 ```bash
-topofetch download 50.0,19.85,50.105,20.13
+topofetch download 50.0,19.85,50.105,20.13 output.topojson
 ```
+
+Output file is optional. Defaults to `STDOUT`.
 
 ### Convert OSM to TopoJSON
 
@@ -22,8 +24,10 @@ If you have already downloaded OSM data as a JSON file
 **NOTE:** _it's not the same as GeoJSON, OSM also has JSON format for its XML-like data_
 
 ```bash
-topofetch convert map.json
+topofetch convert -i map.json -o output.topojson
 ```
+
+Both input and output files are optional. Input defaults to `STDIN`. Output defaults to `STDOUT`.
 
 ## Usage as module
 ```js
