@@ -39,6 +39,9 @@ const bounds = [50.0, 19.85, 50.105, 20.13].join()
 convert(fetchData(generateUrl(bounds)), console.log)
 ```
 
+## API
+For API reference refer to `index.js` which contains JS Docs.
+
 ## Config
 `convert()` takes configuration object as the third argument, which can look like this:
 
@@ -58,12 +61,14 @@ const defaultConfig = {
   }
 }
 ```
-The only thing needed for the layer is filter function used for separating it from others. `d` is data of a GeoJSON feature and comes straight from the OSM data that you provided.
+The only thing needed for the layer is filter function used for separating it from others. `d` is data of a **Geo**JSON feature and comes from the OSM data that you provided.
 
 The output TopoJSON file will have specified layers with their names.
 
 **NOTE:** _TopoJSON layers are simply properties of the `features` in the TopoJSON object_
 
-## TODO
+## Future plans
 - add `query` option for specifying own queries
-- add ability to specify config from CLI
+- add ability to somehow specify config from CLI
+- add usage examples
+- maybe custom QL over the (IMO messy) OverpassQL 🤔

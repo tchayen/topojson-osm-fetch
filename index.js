@@ -30,7 +30,7 @@ const fetchData = async url => {
 /**
  * Writes data to given writeable object. Handles adding trailing newline in STDOUT.
  * @param {object} output writeable output, for example process.stdout
- * @param {*} data data to write
+ * @param {object} data data to write
  */
 const writeOutput = (output, data) => {
   output.write(JSON.stringify(data))
