@@ -17,7 +17,7 @@ npm install -g topojson-osm-fetch
 ### Download data
 
 ```bash
-topofetch download b50.0,19.85,50.105,20.13 output.topojson
+topofetch download b44.96,-93.3,45.0,-93.215 output.topojson
 ```
 (prepend coordinates with `b`)
 
