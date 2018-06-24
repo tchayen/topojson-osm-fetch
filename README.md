@@ -64,7 +64,7 @@ const defaultConfig = {
       minorRoads:
         d => inArray(d.properties.highway, ['unclassified', 'residential', 'pedestrian', 'living_street', 'road']),
       majorRoads:
-        d => inArray(d.properties.highway, ['motorway', 'motorway-link', 'trunk', 'trunk-link', 'primary', 'primary-link', 'secondary', 'secondary-link', 'tertiary', 'tertiary-link'])
+        d => inArray(d.properties.highway, ['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link'])
     }
   }
 }
@@ -110,7 +110,7 @@ Fetching data from Open Street Map is based on Overpass API and its OverpassQL. 
   way["waterway"~"riverbank|dock"]($BOUNDS);
   relation["waterway"~"riverbank|dock"]($BOUNDS);
 
-  way["highway"~"motorway|motorway-link|trunk|trunk-link|primary|primary-link|secondary|secondary-link|tertiary|tertiary-link|road|road|living_street|pedestrian|residential|unclassified"]($BOUNDS);
+  way["highway"~"motorway|motorway_link|trunk|trunk_link|primary|primary_link|secondary|secondary_link|tertiary|tertiary_link|road|road|living_street|pedestrian|residential|unclassified"]($BOUNDS);
 );
 out meta asc;
 >;
