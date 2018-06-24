@@ -56,6 +56,16 @@
       stroke-width: 3;
       stroke: rgb(255, 255, 255);
     }
+
+    .credit {
+      position: fixed;
+      bottom: 15px;
+      right: 20px;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 13px;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantrell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      -webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -138,5 +148,6 @@
       addLayers(svg, data, projectionPath, ['rivers', 'parks', 'minorRoads', 'majorRoads', 'highwayRoads'])
     })()
   </script>
+  <div class="credit">© OpenStreetMap contributors</div>
 </body>
 </html>
