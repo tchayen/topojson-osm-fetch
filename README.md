@@ -138,7 +138,3 @@ The OSM data is converted to GeoJSON and only then the final TopoJSON conversion
 The default query is far from satisfying all possible locations even for the style used in the examples (for example there is no easy way for showing seas as it works for rivers now).
 
 Because of that, if you find any unhandled errors, improvement opportunities or have other ideas of any kind – feel free to submit pull request.
-
-## License
-
-MIT
