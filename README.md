@@ -62,9 +62,11 @@ const defaultConfig = {
       rivers:
         d => d.properties.waterway,
       minorRoads:
-        d => inArray(d.properties.highway, ['unclassified', 'residential', 'pedestrian', 'living_street', 'road']),
+        d => inArray(d.properties.highway, ['unclassified', 'residential', 'pedestrian', 'living_street', 'road', 'tertiary', 'tertiary_link']),
       majorRoads:
-        d => inArray(d.properties.highway, ['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link'])
+        d => inArray(d.properties.highway, ['trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link']),
+      highwayRoads:
+        d => inArray(d.properties.highway, ['motorway', 'motorway_link']),
     }
   }
 }
