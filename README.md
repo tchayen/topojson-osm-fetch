@@ -3,6 +3,7 @@
 Node utilities for fetching data from Open Street Map and converting it to a TopoJSON file.
 
 ![](/screenshots/minneapolis.png)
+
 _Check out the examples section below for source code of the above_
 
 ## Installation
