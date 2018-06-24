@@ -75,7 +75,7 @@ The output TopoJSON file will have specified layers with their names.
 **NOTE:** _TopoJSON layers are simply properties of the `features` in the TopoJSON object_
 
 ## Examples
-In order to comply with browsers' security restrictions, you serve static content from local server.
+In order to comply with browsers' security restrictions, you probably must serve static content from local server.
 
 This bash one-liner run from `/examples` directory comes to the rescue:
 ```bash
