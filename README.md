@@ -4,7 +4,7 @@ Node utilities for fetching data from Open Street Map and converting it to a Top
 
 ![](/screenshots/minneapolis.png)
 
-_Check out the examples section below for source code of the above_
+_Check out the examples section for source code generating the map above_
 
 ## Installation
 
@@ -97,7 +97,7 @@ minneapolis.topojson             |  cracow.topojson
 
 ### Fetching data
 
-Fetching data from Open Street Map is based on Overpass and its OverpassQL. It is really flexible and allows for querying quite complex relations between elements, but for now this lib uses only the following one:
+Fetching data from Open Street Map is based on Overpass API and its OverpassQL. It is really flexible and allows for querying quite complex relations between elements, but for now this lib uses only the following one:
 
 ```bash
 [out:json];
@@ -127,7 +127,18 @@ The OSM data is converted to GeoJSON and only then the final TopoJSON conversion
 
 ## Future plans
 
+- handling edge cases (incorrect bounds, incorrect order of bounds, Overpass API error)
 - add `query` option for specifying own queries
 - add ability to somehow specify config from CLI
-- add usage examples
 - maybe custom QL over the (IMO messy) OverpassQL 🤔
+- maybe other tiny utility for generating preview image of downloaded data
+
+## Contributing
+
+The default query is far from satisfying all possible locations even for the style used in the examples (for example there is no easy way for showing seas as it works for rivers now).
+
+Because of that, if you find any unhandled errors, improvement opportunities or have other ideas of any kind – feel free to submit pull request.
+
+## License
+
+MIT
