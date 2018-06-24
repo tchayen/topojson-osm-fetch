@@ -10,7 +10,7 @@ commander
   .option('-o, --output <file>', 'Output file. Defaults to STDOUT.', '-')
   .parse(process.argv)
 
-const input = () => getStdin().then(string => JSON.parse(string))
+const input = () => getStdin().then(JSON.parse)
 
 const output = commander.output === '-'
   ? process.stdout
