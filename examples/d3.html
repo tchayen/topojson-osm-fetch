@@ -35,13 +35,25 @@
 
     .major-roads-stroke {
       fill: none;
-      stroke-width: 5;
+      stroke-width: 4;
       stroke: rgb(180, 180, 180);
     }
 
     .major-roads {
       fill: none;
+      stroke-width: 3;
+      stroke: rgb(255, 255, 255);
+    }
+
+    .highway-roads-stroke {
+      fill: none;
       stroke-width: 4;
+      stroke: rgb(180, 180, 180);
+    }
+
+    .highway-roads {
+      fill: none;
+      stroke-width: 3;
       stroke: rgb(255, 255, 255);
     }
   </style>
@@ -123,7 +135,7 @@
 
       const data = await d3.json('/assets/minneapolis.topojson')
 
-      addLayers(svg, data, projectionPath, ['rivers', 'parks', 'minorRoads', 'majorRoads'])
+      addLayers(svg, data, projectionPath, ['rivers', 'parks', 'minorRoads', 'majorRoads', 'highwayRoads'])
     })()
   </script>
 </body>
