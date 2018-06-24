@@ -1,6 +1,6 @@
 {
   "name": "topojson-osm-fetch",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Utility for extracting OSM map data and converting it to TopoJSON",
   "license": "MIT",
   "homepage": "https://github.com/Tchayen/topojson-osm-fetch",
