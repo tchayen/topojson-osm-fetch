@@ -91,9 +91,7 @@ The simplest use case is rendering a map via `d3.js` library. Sometimes it might
 
 Check out [source code](/examples/d3.html).
 
-minneapolis.topojson             |  cracow.topojson
-:-------------------------------:|:-------------------------:
-![](/screenshots/minneapolis.png)|![](/screenshots/cracow.png)
+![](/screenshots/minneapolis.png)
 
 ## Insights
 
