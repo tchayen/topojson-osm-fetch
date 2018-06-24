@@ -5,6 +5,6 @@ const commander = require('commander')
 commander
   .version(require('../package.json').version)
   .usage('[command] [options]')
-  .command('download [bounds] [<file>]', 'Download map data for given bounds. For example "50.0,19.85,50.105,20.13". If no file is provided result goes to STDOUT.')
+  .command('download [bounds] [<file>]', 'Download map data for given bounds. For example "b50.0,19.85,50.105,20.13". If no file is provided result goes to STDOUT.')
   .command('convert', 'Convert given file from OSM JSON (NOTE: it\'s not the same as GeoJSON) to TopoJSON.')
   .parse(process.argv)

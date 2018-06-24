@@ -2,7 +2,7 @@
 
 Node utilities for fetching data from Open Street Map and converting it to a TopoJSON file.
 
-![](screenshot.png)
+![](/screenshots/minneapolis.png)
 _Check out the examples below_
 
 ## Installation
@@ -17,8 +17,9 @@ npm install -g topojson-osm-fetch
 ### Download data
 
 ```bash
-topofetch download 50.0,19.85,50.105,20.13 output.topojson
+topofetch download b50.0,19.85,50.105,20.13 output.topojson
 ```
+(prepend coordinates with `b`)
 
 Output file is optional. Defaults to `STDOUT`.
 
@@ -83,11 +84,13 @@ python -m SimpleHTTPServer 8000
 
 ### d3.js SVG
 
-![](screenshot.png)
-
 The simplest use case is rendering a map via `d3.js` library. Sometimes it might be useful to keep the whole map as one asset file and render it as a whole.
 
 Check out [source code](/examples/d3.html).
+
+![](/screenshots/minneapolis.png)
+
+![](/screenshots/cracow.png)
 
 ## Insights
 
@@ -107,8 +110,6 @@ Fetching data from Open Street Map is based on Overpass and its OverpassQL. It i
   relation["waterway"~"riverbank|dock"]($BOUNDS);
 
   way["highway"~"motorway|motorway-link|trunk|trunk-link|primary|primary-link|secondary|secondary-link|tertiary|tertiary-link|road|road|living_street|pedestrian|residential|unclassified"]($BOUNDS);
-
-  way[railway=tram]($BOUNDS);
 );
 out meta asc;
 >;

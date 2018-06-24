@@ -15,7 +15,7 @@ const inArray = (element, array) => array.indexOf(element) > -1
  * @param {string} bounds geographical bounds in the form: 'long1,lat1,long2,lat2'
  * where long1 < long2 and lat1 < lat2
  */
-const generateUrl = bounds => `http://overpass-api.de/api/interpreter?data=[out:json];(way[leisure=park](${bounds});relation[leisure=park](${bounds});way["landuse"="forest|allotments|meadow"](${bounds});relation["landuse"="forest|allotments"](${bounds});way["waterway"~"riverbank|dock"](${bounds});relation["waterway"~"riverbank|dock"](${bounds});way["highway"~"motorway|motorway-link|trunk|trunk-link|primary|primary-link|secondary|secondary-link|tertiary|tertiary-link|road|road|living_street|pedestrian|residential|unclassified"](${bounds});way[railway=tram](${bounds}););out meta asc;>;out skel qt;`
+const generateUrl = bounds => `http://overpass-api.de/api/interpreter?data=[out:json];(way[leisure=park](${bounds});relation[leisure=park](${bounds});way["landuse"="forest|allotments|meadow"](${bounds});relation["landuse"="forest|allotments"](${bounds});way["waterway"~"riverbank|dock"](${bounds});relation["waterway"~"riverbank|dock"](${bounds});way["highway"~"motorway|motorway-link|trunk|trunk-link|primary|primary-link|secondary|secondary-link|tertiary|tertiary-link|road|road|living_street|pedestrian|residential|unclassified"](${bounds}););out meta asc;>;out skel qt;`
 
 /**
  * Fetches json data from given url

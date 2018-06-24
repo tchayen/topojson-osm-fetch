@@ -9,40 +9,40 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: rgb(248, 244, 238);
+      background-color: rgb(246, 246, 244);
     }
 
     .parks {
-      fill: rgb(188, 224, 172);
+      fill: rgb(230, 234, 232);
     }
 
     .rivers {
-      fill: rgb(155, 224, 242);
-      stroke: rgb(155, 224, 242);
+      fill: rgb(200, 210, 212);
+      stroke: rgb(200, 210, 212);
     }
 
     .minor-roads-stroke {
       fill: none;
       stroke-width: 3;
-      stroke: rgb(207, 200, 191);
+      stroke: rgb(220, 220, 220);
     }
 
     .minor-roads {
       fill: none;
       stroke-width: 2;
-      stroke: rgb(255, 255, 255);
+      stroke: rgb(245, 245, 245);
     }
 
     .major-roads-stroke {
       fill: none;
-      stroke-width: 5px;
-      stroke: rgb(245, 195, 142);
+      stroke-width: 5;
+      stroke: rgb(180, 180, 180);
     }
 
     .major-roads {
       fill: none;
-      stroke-width: 4px;
-      stroke: rgb(252, 251, 222);
+      stroke-width: 4;
+      stroke: rgb(255, 255, 255);
     }
   </style>
 </head>
@@ -59,8 +59,8 @@
 
     const width = window.innerWidth,
           height = window.innerHeight,
-          zoomLevel = 1.5,
-          corners = [[19.91, 50.08], [20.0, 50.03]]
+          zoomLevel = 1.15,
+          corners = [[-93.215, 45.0], [-93.3, 44.96]]
 
     // Translate camelCase to kebab-case (just to use proper CSS class naming convention)
     const kebabFromCamel = string => string.split(/(?=[A-Z])/).join('-').toLowerCase()
@@ -121,7 +121,7 @@
         .attr('width', width)
         .attr('height', height)
 
-      const data = await d3.json('/assets/cracow.topojson')
+      const data = await d3.json('/assets/minneapolis.topojson')
 
       addLayers(svg, data, projectionPath, ['rivers', 'parks', 'minorRoads', 'majorRoads'])
     })()
