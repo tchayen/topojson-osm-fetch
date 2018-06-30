@@ -38,11 +38,11 @@ Both input and output files are optional. Input defaults to `STDIN`. Output defa
 
 ## Usage as module
 ```js
-import { generateUrl, fetchData, convert } from 'topojson-osm-fetch'
+import { fetchData, convert } from 'topojson-osm-fetch'
 
 const bounds = [50.0, 19.85, 50.105, 20.13].join()
 
-convert(fetchData(generateUrl(bounds)), console.log)
+convert(fetchData(bounds), console.log)
 ```
 
 ## API
